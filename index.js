@@ -8,6 +8,8 @@ import fileUpload from 'express-fileupload'
 import errorMiddleware from './middlewares/error-middleware.js'
 import corsMiddleware from './middlewares/cors-middleware.js'
 import * as path from "path";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 const app = express()
 import filePathMiddleware from './middlewares/filepath.middleware.js'
 //const path = require('path')
@@ -15,6 +17,8 @@ import filePathMiddleware from './middlewares/filepath.middleware.js'
 
 const PORT = process.env.PORT || config.get('serverPort')
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 app.use(fileUpload({}))
 app.use(cors())
 app.use(filePathMiddleware(path.resolve(__dirname, 'files')))
