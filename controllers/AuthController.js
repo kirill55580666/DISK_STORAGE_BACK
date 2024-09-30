@@ -10,7 +10,7 @@ class AuthController {
                 next(ApiError.BadRequest('Ошибка при регистрации', errors.array()))
             }
             const {email, password} = req.body
-            const userData = await AuthService.registration(email, password)
+            const userData = await AuthService.registration(req, email, password)
             res.json({message: "User was created"})
         } catch (e) {
             next(e)
