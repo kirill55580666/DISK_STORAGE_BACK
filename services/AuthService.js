@@ -8,7 +8,7 @@ import fileService from '../services/FileService.js'
 import {FileModel} from '../models/file-model.js'
 
 class AuthService {
-    async registration(email, password) {
+    async registration(req, email, password) {
         const candidate = await UserModel.findOne({email})
         if (candidate) {
             throw ApiError.BadRequest(`Пользователь с почтовым адресом ${email} уже существует`)
