@@ -5,4 +5,4 @@ function filePath(path) {
     }
 }
 
-module.exports = filePath
+export default filePath

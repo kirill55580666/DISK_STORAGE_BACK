@@ -9,7 +9,7 @@ import errorMiddleware from './middlewares/error-middleware.js'
 import corsMiddleware from './middlewares/cors-middleware.js'
 import * as path from "path";
 const app = express()
-const filePathMiddleware = require('./middlewares/filepath.middleware')
+import filePathMiddleware from './middlewares/filepath.middleware.js'
 //const path = require('path')
 
 
