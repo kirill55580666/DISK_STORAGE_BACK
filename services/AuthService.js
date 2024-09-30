@@ -16,7 +16,7 @@ class AuthService {
         const hashPassword = await bcrypt.hash(password, 3)
         const user = new UserModel({email, password: hashPassword})
         await user.save()
-        await fileService.createDir(new FileModel({user:user.id, name: ''}))
+        await fileService.createDir(req, new FileModel({user:user.id, name: ''}))
     }
     async login(email, password) {
         const user = await UserModel.findOne({email})
